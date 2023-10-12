@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Something new</title>
+    </head>
+
+    <body>
+        <h2>
+            Welcome Back <%= data.name %>!
+        </h2>
+        <hr>
+        <h4>
+            <span>
+                Followings : <%= data.following %>
+            </span>
+            &nbsp; &nbsp;
+            <span>
+                Followers : <%= data.followers %>
+            </span>
+        </h4>
+        <hr>
+        <h4>Posts</h4>
+        <ul>
+            <% data.posts.forEach(element=> { %>
+                <li>
+                    <div>
+                        <img src="<%= element.image %>" alt="useful image" width="100">
+                    </div>
+                    <span>Likes: <%= element.likes %></span>
+                    &nbsp; &nbsp;
+                    <span>Comments: <%= element.comments %></span>
+                </li>
+                <br>
+                <br>
+            <% }) %>
+
+        </ul>
+    </body>
+
+</html>
