@@ -1,19 +1,22 @@
+const { faker } = require("@faker-js/faker");
+const mysql = require("mysql2");
 const express = require("express");
 const app = express();
 const port = 8080;
-const path = require("path");
-const data = require("./data.json");
+const SECRET_KEY = "6LfGYOAoAAAAABYELSGsdMNnONaVAzJU7zPYuqB5";
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 app.set("view engine", "ejs");
+// create the connection to database
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "instagram",
+  password: "Shahayush480",
+});
 app.get("/", (req, res) => {
-  res.render("index.ejs");
-  // extention is not required but file in views folder should have ejs extention
+  connection;
+  res.render("user.ejs");
 });
-app.get("/instagram/user/:userid", (req, res) => {
-  let { userid } = req.params;
-  res.render("user.ejs", { data: data[userid] });
-  // extention is not required but file in views folder should have ejs extention
-});
-app.set("views", path.join(__dirname, "/views"));
+connection.end();

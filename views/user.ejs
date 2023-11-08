@@ -4,40 +4,41 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Something new</title>
+        <title>This page will list all users</title>
     </head>
 
     <body>
-        <h2>
-            Welcome Back <%= data.name %>!
-        </h2>
-        <hr>
-        <h4>
-            <span>
-                Followings : <%= data.following %>
-            </span>
-            &nbsp; &nbsp;
-            <span>
-                Followers : <%= data.followers %>
-            </span>
-        </h4>
-        <hr>
-        <h4>Posts</h4>
-        <ul>
-            <% data.posts.forEach(element=> { %>
-                <li>
-                    <div>
-                        <img src="<%= element.image %>" alt="useful image" width="100">
-                    </div>
-                    <span>Likes: <%= element.likes %></span>
-                    &nbsp; &nbsp;
-                    <span>Comments: <%= element.comments %></span>
-                </li>
-                <br>
-                <br>
-            <% }) %>
-
-        </ul>
+        <table border="1">
+            <form action="/">
+                <button>Add User</button>
+            </form>
+            <thead>
+                <tr>
+                    <th>User id</th>
+                    <th>User name</th>
+                    <th>Email</th>
+                    <th>Edit user name</th>
+                    <th>delete user</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John</td>
+                    <td>john@gmail.com</td>
+                    <td>
+                        <form action="">
+                            <button>Edit User Name</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/">
+                            Delete User
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 
 </html>
